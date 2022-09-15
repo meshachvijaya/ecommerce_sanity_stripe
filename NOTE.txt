@@ -1,0 +1,9 @@
+Under lib/client this is where we set up sanity token, api and url. The url stored .env file
+
+to run sanity simply cd to sanity_ecommerce then run command sanity start
+
+npm run dev
+
+Homepage component is setting out from _app.js under pages and connected to Layout.jsx under components
+
+NOTE: special trick in react is whatever you pass to inside of our component we get access to that through a prop called children
