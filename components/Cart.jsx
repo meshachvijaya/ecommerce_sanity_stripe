@@ -61,13 +61,20 @@ const Cart = () => {
         )}
 
         <div className="product-container">
-          {cartItems.length >= 1 && cartItems.map((item) => (
-            <div className="product" key={item._id}>
+          {cartItems.length >= 1 && 
+            Array.from(cartItems)
+            .sort((a, b) => {
+              if(a._id < b._id) return -1;
+              if(a.id > b._id) return 1;
+              return 0;
+            })
+            .map((item) => (
+            <div className="product" key={item.id}>
               <img src={urlFor(item?.image[0])} className="cart-product-image" />
               <div className="item-desc">
                 <div className="flex top">
-                  <h5>{item.name}</h5>
-                  <h4>${item.price}</h4>
+                  <h5>{item?.name}</h5>
+                  <h4>${item?.price}</h4>
                 </div>
                 <div className="flex bottom">
                   <div>
